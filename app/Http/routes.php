@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    redirect('http://news.hcmfo3club.net');
+    return redirect('http://news.hcmfo3club.net');
 });
