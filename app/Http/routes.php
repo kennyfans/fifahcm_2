@@ -23,8 +23,8 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
     });
 
     Route::get('/', function () {
-        $user = \Laravel\Socialite\Facades\Socialite::driver('facebook')->user();
-        dd($user);
+//        $user = \Laravel\Socialite\Facades\Socialite::driver('facebook')->user();
+//        dd($user);
 
     });
 
