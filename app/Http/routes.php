@@ -11,6 +11,28 @@
 |
 */
 
+
+
+//dd('dudoan.'.\Illuminate\Support\Facades\Config::get('app.domain'));
+
+
+Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app.domain')], function () {
+
+    Route::get('/facebook-login', function () {
+        return \Laravel\Socialite\Facades\Socialite::driver('facebook')->redirect();
+    });
+
+    Route::get('/', function () {
+        $user = \Laravel\Socialite\Facades\Socialite::driver('facebook')->user();
+        dd($user);
+
+    });
+
+
+
+
+});
+
 Route::get('/', function () {
-    return view('welcome');
+
 });

@@ -35,4 +35,10 @@ return [
         'secret' => '',
     ],
 
+    'facebook'  =>  [
+        'client_id' => '1642736695942578',
+        'client_secret' => '228ffba2ceb87a03007cc27c5a17ffe4',
+        'redirect' => 'http://dudoan.hcmfo3club.app',
+    ],
+
 ];
