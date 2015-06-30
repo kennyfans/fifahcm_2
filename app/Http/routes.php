@@ -18,21 +18,16 @@
 
 Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app.domain')], function () {
 
-    Route::get('/facebook-login', function () {
-        return \Laravel\Socialite\Facades\Socialite::driver('facebook')->redirect();
+
+    Route::get('/', function () {
+        return view('welcome');
     });
-
-    Route::get('/facebook-redirect', function () {
-        $user = \Laravel\Socialite\Facades\Socialite::driver('facebook')->user();
-        dd($user);
-
-    });
-
-
-
+    Route::get('/facebook-login', 'Auth\AuthController@redirectToProvider');
+    Route::get('/facebook-auth', 'Auth\AuthController@handleProviderCallback');
 
 });
 
-Route::get('/', function () {
 
+Route::get('/', function () {
+    return redirect( 'http://news.'.\Illuminate\Support\Facades\Config::get('app.domain') );
 });
