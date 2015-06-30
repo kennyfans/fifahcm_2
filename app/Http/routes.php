@@ -22,9 +22,9 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
         return \Laravel\Socialite\Facades\Socialite::driver('facebook')->redirect();
     });
 
-    Route::get('/', function () {
-//        $user = \Laravel\Socialite\Facades\Socialite::driver('facebook')->user();
-//        dd($user);
+    Route::get('/facebook-redirect', function () {
+        $user = \Laravel\Socialite\Facades\Socialite::driver('facebook')->user();
+        dd($user);
 
     });
 
