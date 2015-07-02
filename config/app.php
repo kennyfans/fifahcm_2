@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Saigon',
 
     /*
     |--------------------------------------------------------------------------
@@ -145,8 +145,13 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\RepositoriesServiceProvider::class,
+
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+
 
     ],
 
@@ -196,6 +201,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Flash'     => Laracasts\Flash\Flash::class,
 
     ],
 

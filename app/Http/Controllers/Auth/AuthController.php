@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Repositories\UserRepository;
+use App\Entities\User;
+use Illuminate\Support\Facades\Auth;
+use Laracasts\Flash\Flash;
 use Laravel\Socialite\Facades\Socialite;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -24,13 +27,20 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers;
 
     /**
+     * Repository of user
+     * @var UserRepository
+     */
+    protected $userRepository;
+
+    /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepository $userRepository)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -80,8 +90,11 @@ class AuthController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->user();
-        dd($user);
+        $user = $this->userRepository->findByFacebookIdOrCreate(Socialite::driver('facebook')->user());
+        Auth::login($user, true);
+        Flash::overlay('Bạn đã đăng nhập thành công.', 'Thông báo');
+
+        return redirect('/');
     }
 
 }
