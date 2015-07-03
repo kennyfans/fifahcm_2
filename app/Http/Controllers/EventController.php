@@ -41,7 +41,7 @@ class EventController extends Controller
             $check = $this->eventRepository->getByCriteria(new AvaiableEventCriteria())->where('slug',$slug)->first();
             $view = $event->table_form;
             $formData = DB::table($event->table_form)->get();
-            $userData = (array) DB::table($event->table_event)->where('user_id', Auth::user()->id)->first();
+            $userData = ( Auth::check() ) ? (array) DB::table($event->table_event)->where('user_id', Auth::user()->id)->first() : false;
 
             return view('frontend.events.'.$view, compact('event', 'formData', 'userData', 'check'));
         }else{
@@ -62,7 +62,7 @@ class EventController extends Controller
                 $data[$input] = $request->get($input, 0);
             }
 
-            $record = DB::table($event->table_event)->where('user_id', Auth::user()->id)->get();
+            $record = ( Auth::check() ) ? DB::table($event->table_event)->where('user_id', Auth::user()->id)->get() : false;
 
             $data['updated_at'] = Carbon::now();
             if( !$record ){
