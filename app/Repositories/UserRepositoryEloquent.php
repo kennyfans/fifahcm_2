@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Carbon\Carbon;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Entities\User;
@@ -52,6 +53,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
             'facebook_id'  =>  $facebookData->getId(),
             'email'  =>  $facebookData->getEmail(),
             'avatar'  =>  $facebookData->getAvatar(),
+            'date_update'   =>  Carbon::now()->addDays(7),
         ]);
     }
 

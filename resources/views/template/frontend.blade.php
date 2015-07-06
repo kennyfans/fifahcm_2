@@ -72,6 +72,7 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('userInfo') }}">Cập nhật thông tin</a></li>
                             <li><a href="{{ route('logout') }}">Đăng xuất</a></li>
                         </ul>
                     </li>

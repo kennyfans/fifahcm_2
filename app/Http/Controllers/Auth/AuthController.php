@@ -94,7 +94,7 @@ class AuthController extends Controller
         Auth::login($user, true);
         Flash::overlay('Bạn đã đăng nhập thành công.', 'Thông báo');
 
-        return redirect('/');
+        return redirect(route('userInfo'));
     }
 
 }

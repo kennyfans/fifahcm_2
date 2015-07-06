@@ -39,15 +39,31 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
         'uses'  =>  'Auth\AuthController@getLogout'
     ]);
 
-    Route::get('/su-kien/{slug}',[
-        'as'    =>  'eventDetail',
-        'uses'  =>  'EventController@getDetail'
-    ]);
+    Route::group(['prefix'  =>  'su-kien'], function(){
+        Route::get('/{slug}',[
+            'as'    =>  'eventDetail',
+            'uses'  =>  'EventController@getDetail'
+        ]);
 
-    Route::post('/su-kien/tham-gia/{slug}',[
-        'as'    =>  'eventJoin',
-        'uses'  =>  'EventController@postJoin'
-    ]);
+        Route::post('/tham-gia/{slug}',[
+            'as'    =>  'eventJoin',
+            'uses'  =>  'EventController@postJoin'
+        ]);
+    });
+
+    Route::group(['prefix'  =>  'thanh-vien'], function(){
+
+        Route::get('cap-nhat-thong-tin',[
+            'as'    =>  'userInfo',
+            'uses'  =>  'UserController@getInfo'
+        ]);
+
+        Route::post('cap-nhat-thong-tin',[
+            'as'    =>  'userInfo',
+            'uses'  =>  'UserController@postInfo'
+        ]);
+
+    });
 
 });
 
