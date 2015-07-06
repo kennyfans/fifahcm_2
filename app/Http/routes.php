@@ -24,21 +24,6 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
         'uses'  =>  'HomeController@getIndex'
     ]);
 
-    Route::get('/facebook-login', [
-        'as'    =>  'facebookLogin',
-        'uses'  =>  'Auth\AuthController@redirectToProvider'
-    ]);
-
-    Route::get('/facebook-auth', [
-        'as'    =>  'facebookRedirect',
-        'uses'  =>  'Auth\AuthController@handleProviderCallback'
-    ]);
-
-    Route::get('/logout',[
-        'as'    =>  'logout',
-        'uses'  =>  'Auth\AuthController@getLogout'
-    ]);
-
     Route::group(['prefix'  =>  'su-kien'], function(){
         Route::get('/{slug}',[
             'as'    =>  'eventDetail',
@@ -61,6 +46,21 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
         Route::post('cap-nhat-thong-tin',[
             'as'    =>  'userInfo',
             'uses'  =>  'UserController@postInfo'
+        ]);
+
+        Route::get('/dang-nhap-facebook', [
+            'as'    =>  'facebookLogin',
+            'uses'  =>  'Auth\AuthController@redirectToProvider'
+        ]);
+
+        Route::get('/dang-nhap-facebook-xac-thuc', [
+            'as'    =>  'facebookRedirect',
+            'uses'  =>  'Auth\AuthController@handleProviderCallback'
+        ]);
+
+        Route::get('/dang-xuat',[
+            'as'    =>  'logout',
+            'uses'  =>  'Auth\AuthController@getLogout'
         ]);
 
     });
