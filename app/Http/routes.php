@@ -48,17 +48,17 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
             'uses'  =>  'UserController@postInfo'
         ]);
 
-        Route::get('/dang-nhap-facebook', [
+        Route::get('dang-nhap-facebook', [
             'as'    =>  'facebookLogin',
             'uses'  =>  'Auth\AuthController@redirectToProvider'
         ]);
 
-        Route::get('/dang-nhap-facebook-xac-thuc', [
+        Route::get('dang-nhap-facebook-xac-thuc', [
             'as'    =>  'facebookRedirect',
             'uses'  =>  'Auth\AuthController@handleProviderCallback'
         ]);
 
-        Route::get('/dang-xuat',[
+        Route::get('dang-xuat',[
             'as'    =>  'logout',
             'uses'  =>  'Auth\AuthController@getLogout'
         ]);
