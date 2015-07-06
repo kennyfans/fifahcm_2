@@ -38,7 +38,7 @@ return [
     'facebook'  =>  [
         'client_id' => '1642736695942578',
         'client_secret' => '228ffba2ceb87a03007cc27c5a17ffe4',
-        'redirect' => 'http://dudoan.'.env('APP_DOMAIN', '').'/facebook-auth',
+        'redirect' => 'http://dudoan.'.env('APP_DOMAIN', '').'/thanh-vien/dang-nhap-facebook-xac-thuc',
     ],
 
 ];
