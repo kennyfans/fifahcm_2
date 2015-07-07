@@ -92,7 +92,7 @@ class AuthController extends Controller
     {
         $user = $this->userRepository->findByFacebookIdOrCreate(Socialite::driver('facebook')->user());
         Auth::login($user, true);
-        Flash::overlay('Bạn đã đăng nhập thành công.', 'Thông báo');
+        Flash::overlay('Bạn đã đăng nhập thành công. Hãy đọc kỹ thể lệ để tham gia', 'Thông báo');
 
         return redirect(route('userInfo'));
     }
