@@ -10,7 +10,7 @@
                         <hr/>
                         <div class="section-content">
                             <h3><a href="{{ route('eventDetail', [$event->slug])  }}">{{ $event->name  }}</a></h3>
-                            <a href="{{ route('eventDetail', [$event->slug])  }}"><img src="uploads/events/{{ $event->thumb  }}" alt="" class="img-responsive"/></a>
+                            <a href="{{ route('eventDetail', [$event->slug])  }}"><img src="uploads/events/{{ $event->thumb  }}" alt="{{ $event->name  }}" class="img-responsive"/></a>
                         </div>
                         <hr/>
                     @endforeach

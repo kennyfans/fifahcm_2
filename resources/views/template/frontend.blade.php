@@ -39,7 +39,7 @@
 
         <div class="site-branding col-md-12">
             <a href="{{ url('/') }}" rel="home" class="pull-left">
-                <img src="{{ url('images/logo.png') }}" alt="" class="site-logo" />
+                <img src="{{ url('images/logo.png') }}" alt="CLB Fifa Online 3 Hồ Chí Minh - Niềm Đam Mê Bất Tận" class="site-logo" />
             </a>
             <div class="pull-left">
                 <h1 class="site-title">CLB Fifa Online 3 HCM</h1>
@@ -71,7 +71,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
                     <li><a href="{{ route('facebookLogin') }}">
-                            <img src="{{ url('images/facebook.png')  }}" alt="" class="logo-login-facebook"/>
+                            <img src="{{ url('images/facebook.png')  }}" alt="Facebook Login" class="logo-login-facebook"/>
                             <span>Đăng nhập thông qua Facebook</span>
                         </a>
                     </li>
