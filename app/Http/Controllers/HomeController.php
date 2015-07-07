@@ -36,7 +36,10 @@ class HomeController extends Controller
         $this->eventRepository->pushCriteria(new AvaiableEventCriteria());
         $events = $this->eventRepository->all();
         return view('frontend.home', compact('events'));
+    }
 
+    public function getRule(){
+        return view('frontend.rule');
     }
 
 }

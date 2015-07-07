@@ -24,6 +24,12 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
         'uses'  =>  'HomeController@getIndex'
     ]);
 
+    Route::get('the-le',[
+        'as'    =>  'rulePage',
+        'uses'  =>  'HomeController@getRule'
+    ]);
+
+
     Route::group(['prefix'  =>  'su-kien'], function(){
         Route::get('/{slug}',[
             'as'    =>  'eventDetail',
