@@ -51,7 +51,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">Sự kiện</a></li>
-                <li><a href="{{ url('/') }}">Thể lệ</a></li>
+                <li><a href="{{ route('rulePage') }}">Thể lệ</a></li>
                 <li><a href="http://news.hcmfo3club.net" target="_blank">Tin tức</a></li>
             </ul>
 
