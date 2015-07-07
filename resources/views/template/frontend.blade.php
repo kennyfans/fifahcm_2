@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dự đoán - CLB Fifa Online 3 HCM</title>
+    <title>Trang sự kiện dự đoán - CLB Fifa Online 3 HCM</title>
 
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+    <link rel="icon" type="image/png" href="{{ url('images/favicon.png') }}" />
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
