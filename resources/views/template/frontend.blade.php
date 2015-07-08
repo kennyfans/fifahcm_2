@@ -14,9 +14,9 @@
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="CLB Fifa Online 3 Hồ Chí Minh" />
-    <meta property="og:description" content="CLB Fifa Online 3 Hồ Chí Minh - Niềm Đam Mê Bất Tận" />
+    <meta property="og:description" content="Sư kiện dự đoán trúng thưởng - CLB Fifa Online 3 Hồ Chí Minh - Niềm Đam Mê Bất Tận" />
     <meta property="og:url" content="http://dudoan.hcmfo3club.net" />
-    <meta property="og:site_name" content="CLB Fifa Online 3 Hồ Chí Minh" />
+    <meta property="og:site_name" content="Trang sự kiện dự đoán - CLB Fifa Online 3 Hồ Chí Minh" />
     <meta property="article:publisher" content="https://www.facebook.com/FFOLTPHCM?fref=ts" />
     <meta property="fb:app_id" content="1642736695942578" />
     <meta property="og:image" content="{{ url('images/logo.png') }}" />
