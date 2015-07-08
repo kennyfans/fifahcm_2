@@ -12,7 +12,7 @@
         Cách dự đoán và tính điểm nhận quà :
         <ul>
             <li>Người chơi sẽ dự đoán kết quả các trận đấu tại giải.</li>
-            <li>Mỗi trận đấu người chơi dự đoán trúng kết quả sẽ được cộng 10 điểm., dự đoán sai sẽ bị trừ 1 điểm.</li>
+            <li>Mỗi trận đấu người chơi dự đoán trúng kết quả sẽ được cộng 10 điểm, dự đoán sai sẽ bị trừ 1 điểm.</li>
             <li>Mỗi trận đấu người chơi có tham gia dự đoán sẽ được cộng 2 điểm.</li>
             <li>Kết quả dự đoán của người chơi sẽ được xếp hạng theo tổng điểm mà người chơi đạt được với tất cả người chơi khác.</li>
         </ul>
@@ -28,6 +28,9 @@
 
     <p>
         Quà tặng cho phần dự đoán sẽ được trao tại buổi offline tổ chức sau giải đấu, các bạn đạt các phần quà xuất trình CMND tại buổi offline CLB để nhận quà.
+    </p>
+    <p>
+        Thời gian kết thúc dự đoán : 22h30 ngày 11 tháng 7 năm 2015
     </p>
 </div>
 @endsection
