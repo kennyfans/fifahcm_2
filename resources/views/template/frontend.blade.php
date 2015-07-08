@@ -19,7 +19,7 @@
     <meta property="og:site_name" content="CLB Fifa Online 3 Hồ Chí Minh" />
     <meta property="article:publisher" content="https://www.facebook.com/FFOLTPHCM?fref=ts" />
     <meta property="fb:app_id" content="1642736695942578" />
-    <meta property="og:image" content="{{ url('images/logo200.png') }}" />
+    <meta property="og:image" content="{{ url('images/logo.png') }}" />
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
