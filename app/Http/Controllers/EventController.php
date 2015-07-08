@@ -62,22 +62,28 @@ class EventController extends Controller
                 $data[$input] = $request->get($input, 0);
             }
 
-            $record = ( Auth::check() ) ? DB::table($event->table_event)->where('user_id', Auth::user()->id)->get() : false;
+            if( Auth::check() ){
+                $record = DB::table($event->table_event)->where('user_id', Auth::user()->id)->get();
 
-            $data['updated_at'] = Carbon::now();
-            if( !$record ){
-                $data['user_id']    =   Auth::user()->id;
-                $data['created_at'] = Carbon::now();
-                $joinEvent = DB::table($event->table_event)->insert($data);
+                $data['updated_at'] = Carbon::now();
+                if( !$record ){
+                    $data['user_id']    =   Auth::user()->id;
+                    $data['created_at'] = Carbon::now();
+                    $joinEvent = DB::table($event->table_event)->insert($data);
+                }else{
+                    $joinEvent = DB::table($event->table_event)->where('user_id', Auth::user()->id)->update($data);
+                }
+
+                if( $joinEvent ){
+                    Flash::overlay('Bạn đã dự đoán thành công.', 'Thông báo');
+                }else{
+                    Flash::overlay('Có lỗi trong quá trình dự đoán. Vui lòng thử lại', 'Lỗi');
+                }
+
             }else{
-                $joinEvent = DB::table($event->table_event)->where('user_id', Auth::user()->id)->update($data);
+                Flash::overlay('Sự kiện này đã hết thời gian dự đoán.', 'Thông báo');
             }
 
-            if( $joinEvent ){
-                Flash::overlay('Bạn đã dự đoán thành công.', 'Thông báo');
-            }else{
-                Flash::overlay('Có lỗi trong quá trình dự đoán. Vui lòng thử lại', 'Lỗi');
-            }
 
             return redirect(route('eventDetail', $event->slug));
 

@@ -71,7 +71,7 @@
                                 </div>
                             @elseif( !$check )
                                 <div class="alert alert-info" role="alert">
-                                    Sự kiện này đã hết thời gian hoạt động.
+                                    Sự kiện này đã hết thời gian dự đoán.
                                 </div>
                             @else
                                 <button type="submit" class="btn btn-default">Dự Đoán</button>
