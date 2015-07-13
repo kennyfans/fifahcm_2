@@ -20,6 +20,7 @@ class Event extends Model implements Transformable
         'thumb',
         'date_start',
         'date_end',
+        'date_finish',
         'is_active'
     ];
 

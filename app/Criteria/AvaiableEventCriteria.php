@@ -10,8 +10,7 @@ class AvaiableEventCriteria implements CriteriaInterface {
     public function apply($model, RepositoryInterface $repository)
     {
         $model = $model->where('is_active','=', 1 )
-                    ->where('date_start','<=', Carbon::now() )
-                    ->where('date_end','>=', Carbon::now() );
+                    ->where('date_finish','>=', Carbon::now() );
         return $model;
     }
 }
