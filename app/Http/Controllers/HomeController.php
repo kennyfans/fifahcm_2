@@ -33,7 +33,7 @@ class HomeController extends Controller
      * Show index page
      */
     public function getIndex(){
-        $this->eventRepository->pushCriteria(new AvaiableEventCriteria());
+        $this->eventRepository->pushCriteria(new ShowEventCriteria());
         $events = $this->eventRepository->all();
         return view('frontend.home', compact('events'));
     }
