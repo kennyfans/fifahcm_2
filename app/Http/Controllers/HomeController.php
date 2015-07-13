@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Criteria\AvaiableEventCriteria;
+use App\Criteria\ShowEventCriteria;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use App\Repositories\EventRepository;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
