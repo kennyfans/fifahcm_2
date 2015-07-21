@@ -10,7 +10,8 @@
             <th>Hạng</th>
             <th>Tên</th>
             <th>Điểm</th>
-            <th>Thời gian dự đoán ( Tính thời gian cập nhật cuối cùng )</td>
+            <th>Thời gian dự đoán</td>
+            <th>Chi tiết</th>
         </tr>
         <?php $rank = 0 ?>
         @foreach($results as $item)
@@ -32,6 +33,7 @@
             <td>{{ $item->name }}</td>
             <td><span class="badge">{{ $item->score }}</span></td>
             <td>{{ date('H:i:s d-m-Y',strtotime($item->updated_at) ) }}</td>
+            <th><a href="javascript:;"><span class="glyphicon glyphicon-new-window"></span></a></th>
         </tr>
 
         @endforeach
