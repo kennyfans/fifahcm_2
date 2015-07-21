@@ -36,7 +36,7 @@
 
             <tr>
                 <th><span class="label label-info">{{$rs}}</span></th>
-                <td><span class="label label-primary">{{ $item->team_1  }}</span></td>
+                <td><span>{{ $item->team_1  }}</span></td>
                 <td>
                     @if( $result->{'m'.$num} == 1 ) 
                         <label class="label label-success">Thắng</label>
@@ -57,7 +57,7 @@
                         <label class="label label-danger">Thua</label>
                     @endif
                 </td>
-                <td><span class="label label-danger">{{ $item->team_2  }}</span></td>
+                <td><span>{{ $item->team_2  }}</span></td>
                 <td>
                     <?php
                         if( $userResult->{'m'.$num} == 0 ){
