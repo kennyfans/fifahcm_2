@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Repositories\EventRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class HomeController extends Controller
 {
@@ -40,6 +41,29 @@ class HomeController extends Controller
 
     public function getRule(){
         return view('frontend.rule');
+    }
+
+    public function getResult($id){
+
+
+        if( !Schema::hasTable('event_'.$id) ){
+            
+            return redirect('/');
+
+        }   
+
+        $results = DB::table('event_'.$id)
+            ->select('event_1.score','event_1.updated_at','users.name')
+            ->where('event_1.id', '!=', 1)
+            ->join('users', 'users.id', '=', 'event_1.user_id')
+            ->orderBy('event_1.score', 'desc')
+            ->orderBy('event_1.updated_at', 'asc')
+            ->get();
+
+        return view('frontend.result.tmpResult', compact('results'));
+
+
+
     }
 
 }

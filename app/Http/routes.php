@@ -44,20 +44,6 @@ Route::get('/result', function(){
 
 });
 
-Route::get('tmp', function(){
-
-    $results = DB::table('event_1')
-    ->select('event_1.score','event_1.updated_at','users.name')
-    ->where('event_1.id', '!=', 1)
-    ->join('users', 'users.id', '=', 'event_1.user_id')
-    ->orderBy('event_1.score', 'desc')
-    ->orderBy('event_1.updated_at', 'asc')
-    ->get();
-    
-    return view('frontend.result.tmpResult', compact('results'));
-
-});
-
 
 
 
@@ -72,6 +58,11 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
     Route::get('the-le',[
         'as'    =>  'rulePage',
         'uses'  =>  'HomeController@getRule'
+    ]);
+
+    Route::get('ket-qua-du-doan/{id}',[
+        'as'    =>  'resultPage',
+        'uses'  =>  'HomeController@getResult'
     ]);
 
 
