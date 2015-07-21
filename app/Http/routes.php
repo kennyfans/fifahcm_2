@@ -65,6 +65,11 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
         'uses'  =>  'HomeController@getResult'
     ]);
 
+    Route::get('chi-tiet-du-doan/{id}/{userId}',[
+        'as'    =>  'resultDetailPage',
+        'uses'  =>  'HomeController@getResultDetail'
+    ]);
+
 
     Route::group(['prefix'  =>  'su-kien'], function(){
         Route::get('/{slug}',[
