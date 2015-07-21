@@ -12,8 +12,53 @@
 */
 
 
+Route::get('/result', function(){
 
-//dd('dudoan.'.\Illuminate\Support\Facades\Config::get('app.domain'));
+
+    // $event = 1;
+    // $results = DB::table('event_1')->get();
+    // $result = array_shift($results);
+
+    // foreach( $results as &$item ){
+    //     $score = 0;
+    //     for( $i = 1; $i<=45; $i++ ){
+        
+    //         if( $item->{'m'.$i} != 0 ){
+    //             $score += 2;
+
+    //             if( $item->{'m'.$i} == $result->{'m'.$i} ){
+    //                 $score += 10;
+    //             }else{
+    //                 $score -= 1;
+    //             }
+
+    //         }
+            
+    //         DB::table('event_1')
+    //         ->where('id', $item->id)
+    //         ->update(['score' => $score]);
+
+    //     }
+
+    // }
+
+});
+
+Route::get('tmp', function(){
+
+    $results = DB::table('event_1')
+    ->select('event_1.score','event_1.updated_at','users.name')
+    ->where('event_1.id', '!=', 1)
+    ->join('users', 'users.id', '=', 'event_1.user_id')
+    ->orderBy('event_1.score', 'desc')
+    ->orderBy('event_1.updated_at', 'asc')
+    ->get();
+    
+    return view('frontend.result.tmpResult', compact('results'));
+
+});
+
+
 
 
 Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app.domain')], function () {
