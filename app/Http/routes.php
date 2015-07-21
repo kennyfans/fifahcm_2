@@ -60,14 +60,14 @@ Route::group(['domain' => 'dudoan.'.\Illuminate\Support\Facades\Config::get('app
         'uses'  =>  'HomeController@getRule'
     ]);
 
-    Route::get('ket-qua-du-doan/{id}',[
+    Route::get('ket-qua-du-doan/{slug}',[
         'as'    =>  'resultPage',
-        'uses'  =>  'HomeController@getResult'
+        'uses'  =>  'EventController@getResult'
     ]);
 
-    Route::get('chi-tiet-du-doan/{id}/{userId}',[
+    Route::get('chi-tiet-du-doan/{slug}/{userId}',[
         'as'    =>  'resultDetailPage',
-        'uses'  =>  'HomeController@getResultDetail'
+        'uses'  =>  'EventController@getResultDetail'
     ]);
 
 

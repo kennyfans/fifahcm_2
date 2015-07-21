@@ -33,7 +33,7 @@
             <td>{{ $item->name }}</td>
             <td><span class="badge">{{ $item->score }}</span></td>
             <td>{{ date('H:i:s d-m-Y',strtotime($item->updated_at) ) }}</td>
-            <th><a target="_blank" href="{{ URL::route('resultDetailPage', [$event->id,$item->user_id]) }}"><span class="glyphicon glyphicon-new-window"></span></a></th>
+            <th><a target="_blank" href="{{ URL::route('resultDetailPage', [$event->slug,$item->user_id]) }}"><span class="glyphicon glyphicon-new-window"></span></a></th>
         </tr>
 
         @endforeach

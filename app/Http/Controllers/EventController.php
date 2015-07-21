@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Criteria\AvaiableEventCriteria;
+use App\Criteria\ShowFinishEventCriteria;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use App\Repositories\EventRepository;
+use App\Repositories\UserRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Laracasts\Flash\Flash;
@@ -27,9 +28,12 @@ class EventController extends Controller
 
     protected $eventRepository;
 
-    function __construct(EventRepository $eventRepository)
+    protected $userRepository;
+
+    function __construct(EventRepository $eventRepository, UserRepository $userRepository)
     {
         $this->eventRepository = $eventRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function getDetail( $slug ){
@@ -91,6 +95,54 @@ class EventController extends Controller
             return redirect('/');
         }
 
+    }
+
+
+    public function getResult($slug){
+        $this->eventRepository->pushCriteria(new ShowFinishEventCriteria());
+        $event = $this->eventRepository->getBySlug($slug);
+
+        if( empty($event) ) {
+            return redirect('/');
+        }
+
+
+        $results = DB::table($event->table_event)
+            ->select($event->table_event.'.score',$event->table_event.'.updated_at','users.name',$event->table_event.'.id',$event->table_event.'.user_id')
+            ->where($event->table_event.'.id', '!=', 1)
+            ->join('users', 'users.id', '=', $event->table_event.'.user_id')
+            ->orderBy($event->table_event.'.score', 'desc')
+            ->orderBy($event->table_event.'.updated_at', 'asc')
+            ->get();
+
+        return view('frontend.result.tmpResult', compact('event','results'));
+
+    }
+
+    public function getResultDetail($slug, $userId){
+
+        // check event avaiable
+        $this->eventRepository->pushCriteria(new ShowFinishEventCriteria());
+        $event = $this->eventRepository->getBySlug($slug);
+        if( empty($event) ) {
+            return redirect('/');
+        }
+
+        // check user avaiable
+        $user = $this->userRepository->find($userId);
+        if( empty($user) ) {
+            return redirect('/');
+        }
+
+        $formData = DB::table($event->table_form)->get();
+
+        // get result
+        $results = DB::table($event->table_event)->whereIn('user_id', [0,$user->id])->get();
+        $result = $results[0];
+        $userResult = $results[1];
+
+        return view('frontend.result.resultDetail_'.$event->id, compact('event', 'user','result','userResult','formData'));
+        
     }
 
 
